@@ -33,11 +33,9 @@ def save_reservation(request):
     reservation.save()#or save this method => Reservation.save(reservation)
     return Response(status=status.HTTP_201_CREATED)
 
-
 class FlightViewSet(viewsets.ModelViewSet):
     queryset = Flight.objects.all()
     serializer_class = FlightSerializers
-    
 class PassengerViewSet(viewsets.ModelViewSet):  
     queryset = Passenger.objects.all()
     serializer_class = PassengerSerializers
