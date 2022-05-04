@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from flightApp.views import *
+from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
@@ -27,5 +28,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('flightServices/',include(router.urls)),
     path('flightServices/findFlights/',findFlightsView,name='findFlightsView'),
-    path('flightServices/saveReservation/',save_reservation,name='save_reservation')
+    path('flightServices/saveReservation/',save_reservation,name='save_reservation'),
+    path('api-token-auth/',obtain_auth_token,name='obtain_auth_token')
 ]

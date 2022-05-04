@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework import status,viewsets
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from rest_framework.permissions import IsAuthenticated
 from .models import *
 from .serializers import *
 # Create your views here.
@@ -36,6 +37,8 @@ def save_reservation(request):
 class FlightViewSet(viewsets.ModelViewSet):
     queryset = Flight.objects.all()
     serializer_class = FlightSerializers
+    permission_classes = [IsAuthenticated]
+    
 class PassengerViewSet(viewsets.ModelViewSet):  
     queryset = Passenger.objects.all()
     serializer_class = PassengerSerializers
