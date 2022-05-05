@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-pa)!r-!1bc+x7*#33l4+5_z#125e=15h^az$o198ub3bkg*i#j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+#Cors Config
+ALLOWED_HOSTS = ['*']
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Application definition
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
     #third party libraries
     'rest_framework',
     'rest_framework.authtoken',
+    'corsheaders',
     
     #myapp
     'flightApp'
@@ -53,6 +57,7 @@ REST_FRAMEWORK = {
 }
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -143,5 +148,6 @@ STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+#python -m pip install -U --force pip 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
