@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Criteria } from 'src/app/model/criteria';
+import { LoginService } from './../../services/login.service';
+import { ReservationService } from './../../services/reservation.service';
 
 @Component({
   selector: 'app-find-flights',
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FindFlightsComponent implements OnInit {
 
-  constructor() { }
+  criteria:Criteria=new Criteria('','','')
+  constructor(private loginService:LoginService,private service:ReservationService) { }
 
   ngOnInit(): void {
+    this.loginService.login()
   }
 
 }

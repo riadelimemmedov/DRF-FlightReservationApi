@@ -1,1 +1,16 @@
-<p>find-flights works!</p>
+
+<html>
+  <head>
+    <title>Find Flights</title>
+  </head>
+  <body>
+    <h2>Find Flights:</h2>
+    <form #findFlightsForm="ngForm" (ngSubmit)="onSubmit()">
+      From: <input type="text" [(ngModel)]="criteria.departureCity" name="from"/>
+      To: <input type="text" [(ngModel)]="criteria.arrivalCity" name="to"/>
+      Departure Date: <input type="text" [(ngModel)]="criteria.dateOfDeparture" name="dateOfDeparture"/>
+      <input type="submit" value="search"/>
+    </form>
+  </body>
+</html>
+<router-outlet></router-outlet>

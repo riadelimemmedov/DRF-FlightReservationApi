@@ -24,7 +24,7 @@ export class LoginService {
         this.httpOptions={
           headers:new HttpHeaders({
             'Content-Type': 'application/json',
-            'Authorization': "Token " +data['token']
+            'Authorization': "Token "+ data['token']
           })
         }
       })
