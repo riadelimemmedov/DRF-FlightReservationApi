@@ -7,6 +7,11 @@ import { FindFlightsComponent } from './components/find-flights/find-flights.com
 import { DisplayFlightsComponent } from './components/display-flights/display-flights.component';
 import { PassengerDetailsComponent } from './components/passenger-details/passenger-details.component';
 import { ConfirmReservationComponent } from './components/confirm-reservation/confirm-reservation.component';
+import { onErrorResumeNext } from 'rxjs/operators';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { LoginService } from './services/login.service';
+import { ReservationService } from './services/reservation.service';
 
 @NgModule({
   declarations: [
@@ -18,9 +23,11 @@ import { ConfirmReservationComponent } from './components/confirm-reservation/co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [LoginService,ReservationService],
+  bootstrap: [FindFlightsComponent]
 })
 export class AppModule { }

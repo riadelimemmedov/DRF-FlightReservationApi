@@ -9,6 +9,7 @@ export class ReservationService {
   flightsUrl:string = 'http://127.0.0.1:8000/flightServices/findFlights/'
   singleFlightUrl:string = 'http://127.0.0.1:8000/flightServices/flights/'
   saveReservationUrl:string = 'http://127.0.0.1:8000/flightServices/saveReservation/'
+  flightData:any
 
   constructor(private http:HttpClient,private loginService:LoginService) {
 

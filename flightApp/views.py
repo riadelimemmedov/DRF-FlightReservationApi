@@ -10,7 +10,8 @@ from .serializers import *
 
 @api_view(['POST'])
 def findFlightsView(request):
-    flights = Flight.objects.filter(departureCity=request.data['departureCity'],arrivalCity=request.data['arrivalCity'],dateofDeparture=request.data['dateofDeparture'])
+    print(request.data.get('dateofDeparture'))
+    flights = Flight.objects.filter(departureCity=request.data['departureCity'],arrivalCity=request.data['arrivalCity'],dateofDeparture=request.data['dateOfDeparture'])#sagdaki deyerler angulardaki name [(ngModel)]="deyer" den gelir
     serializer = FlightSerializers(flights,many=True)
     return Response(serializer.data)
 

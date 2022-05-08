@@ -20,11 +20,11 @@ export class LoginService {
       "password":"kenan123321"
   }
     this.http.post('http://127.0.0.1:8000/api-token-auth/',
-      JSON.stringify(user),this.httpOptions).subscribe((data)=>{
+      JSON.stringify(user),this.httpOptions).subscribe((data:any)=>{
         this.httpOptions={
           headers:new HttpHeaders({
             'Content-Type': 'application/json',
-            'Authorization': "Token "+ data['token']
+            'Authorization': "Token " + data['token']
           })
         }
       })
